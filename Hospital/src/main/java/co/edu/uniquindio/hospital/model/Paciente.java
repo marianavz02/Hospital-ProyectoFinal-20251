@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Paciente extends Persona{
     ArrayList<Procedimiento> listHistoria = new ArrayList<Procedimiento>();
 
-    public Paciente(int id, String nombre, String telefono, String email, String direccion, LocalDate fechaNacimiento, ArrayList<Procedimiento> listHistoria) {
+    public Paciente(int id, String nombre, String telefono, String email, String direccion, LocalDate fechaNacimiento) {
         super(id, nombre, telefono, email, direccion, fechaNacimiento);
         this.listHistoria = listHistoria;
     }

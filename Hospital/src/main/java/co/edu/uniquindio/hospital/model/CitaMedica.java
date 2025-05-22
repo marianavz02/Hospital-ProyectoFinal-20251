@@ -3,17 +3,18 @@ package co.edu.uniquindio.hospital.model;
 import java.time.LocalDate;
 
 public class CitaMedica {
+    Paciente paciente;
     LocalDate fecha;
     String hora;
     Medico profesional;
-    String descripcion;
+    Especialidad especialidad;
     Sala consultorio;
 
-    public CitaMedica(LocalDate fecha, Medico profesional, String hora, String descripcion, Sala consultorio) {
+    public CitaMedica(Paciente paciente, LocalDate fecha, Medico profesional, String hora, Especialidad especialidad, Sala consultorio) {
         this.fecha = fecha;
         this.profesional = profesional;
         this.hora = hora;
-        this.descripcion = descripcion;
+        this.especialidad = especialidad;
         this.consultorio = consultorio;
     }
 
@@ -42,12 +43,12 @@ public class CitaMedica {
         this.profesional = profesional;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public Especialidad getEspecialidad() {
+        return especialidad;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setEspecialidad(Especialidad especialidad) {
+        this.especialidad = especialidad;
     }
 
     public Sala getConsultorio() {
@@ -64,7 +65,7 @@ public class CitaMedica {
                 "fecha=" + fecha +
                 ", hora='" + hora + '\'' +
                 ", profesional=" + profesional +
-                ", descripcion='" + descripcion + '\'' +
+                ", Especialidad='" + especialidad + '\'' +
                 ", consultorio=" + consultorio +
                 '}';
     }
