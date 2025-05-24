@@ -1,5 +1,5 @@
 package co.edu.uniquindio.hospital.model;
 
 public enum Especialidad {
-    GENERAL,ESPECIALISTA, ODONTOLOGIA, ADMINISTRADOR,;
+    GENERAL,ESPECIALISTA, ADMINISTRADOR,;
 }

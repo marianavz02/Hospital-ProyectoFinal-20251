@@ -1,9 +1,5 @@
 package co.edu.uniquindio.hospital.model;
 
-public record Procedimiento() {
-    private static TipoProcedimiento tipoProcedimiento;
-    private static String informacion;
-
-
+public record Procedimiento(TipoProcedimiento tipoProcedimiento,String informacion) {
 
 }
