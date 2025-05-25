@@ -2,7 +2,7 @@ package co.edu.uniquindio.hospital.model;
 
 import java.time.LocalDate;
 
-public class Persona {
+public abstract class Persona implements ICerrarCesion {
     public int id;
     public String nombre;
     public String telefono;
@@ -77,4 +77,6 @@ public class Persona {
                 ", direccion='" + direccion + '\'' +
                 '}';
     }
+
+    public abstract boolean iniciarCesion(int id, String email, Persona persona);
 }

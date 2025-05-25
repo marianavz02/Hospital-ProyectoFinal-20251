@@ -6,7 +6,7 @@ import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Medico extends Persona {
+public class Medico extends Persona implements ICerrarCesion , IActualizarHistoria{
     private Especialidad especialidad;
     private Map<DayOfWeek,Horario> horarioDisponible;
 
@@ -39,12 +39,37 @@ public class Medico extends Persona {
         return "Medico{" +
                 "especialidad=" + especialidad +
                 ", id=" + id +
-                ", nombre='" + nombre + '\'' +
+                ",/n nombre='" + nombre + '\'' +
                 ", telefono='" + telefono + '\'' +
                 ", email='" + email + '\'' +
                 ", direccion='" + direccion + '\'' +
                 ", fechaNacimiento=" + fechaNacimiento +
+                ", /n horarioDisponible=" + horarioDisponible +
                 '}';
     }
+
+    @Override
+    public boolean iniciarCesion(int id, String email, Persona persona) {
+        boolean flag = false;
+        if(persona instanceof Medico && persona.getEmail().equals(email) && persona.getDireccion().equals(direccion)) {
+            flag = true;
+        }
+        return flag;
+    }
+
+    @Override
+    public void cerrarCesion() {
+    }
+
+    @Override
+    public boolean actualizarHistoria(Procedimiento procedimiento, Paciente paciente) {
+        boolean flag = false;
+        paciente.getListHistoria().add(procedimiento);
+        if(paciente.getListHistoria().contains(procedimiento)) {
+            flag = true;
+        }
+        return flag;
+    }
+
 
 }

@@ -33,4 +33,19 @@ public class Paciente extends Persona{
                 "listHistoria=" + listHistoria +
                 '}';
     }
+
+    @Override
+    public boolean iniciarCesion(int id, String email, Persona persona){
+        boolean flag = false;
+        if (persona instanceof Paciente && persona.getId() == id && persona.getEmail().equals(email)) {
+            flag = true;
+        }
+        return flag;
+    }
+
+
+    @Override
+    public void cerrarCesion() {
+
+    }
 }
