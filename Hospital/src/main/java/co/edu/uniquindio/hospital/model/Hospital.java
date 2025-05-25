@@ -16,7 +16,7 @@ public class Hospital {
     ArrayList<Medico> listMedicos = new ArrayList<Medico>();
     ArrayList<CitaMedica> listCitas = new ArrayList<CitaMedica>();
     ArrayList<Sala> listSalas = new ArrayList<Sala>();
- 
+
     String nombreHospital;
 
     public Hospital(String nombreHospital) {
@@ -118,8 +118,7 @@ public class Hospital {
                 salaEncontrado = sala;
                 break;
             }
-        }
-        return salaEncontrado;
+        }return salaEncontrado;
     }
 
 

@@ -5,12 +5,14 @@ import co.edu.uniquindio.hospital.model.Hospital;
 import co.edu.uniquindio.hospital.model.Medico;
 import co.edu.uniquindio.hospital.model.Paciente;
 import co.edu.uniquindio.hospital.model.CitaMedica;
+import co.edu.uniquindio.hospital.model.Sala;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.logging.Logger;
 import static org.junit.jupiter.api.Assertions.*;
@@ -72,9 +74,6 @@ public class HospitalTest {
         LOG.info("Fin prueba de funcionalidad mostrar horario");
     }
 
-    
-
-
 
     @Test
     @DisplayName("Prueba de funcionalidad metodo crearCita")
@@ -109,6 +108,95 @@ public class HospitalTest {
         assertEquals(esperado,resultado);
         LOG.info("Fin prueba de funcionalidad buscarUltimaCitaMedica");
     }
+
+    @Test
+    @DisplayName("Prueba de funcionalidad metodo buscarCita")
+    public void testBuscarCita() {
+        LOG.info("Inicio prueba de funcionalidad buscarCita");
+        LOG.info(" Inicio Prueba de funcionalidad crearCita");
+        Hospital hospital = new Hospital("Hospital1");
+        hospital.crearPaciente(1, "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
+        hospital.crearMedico(12,"lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
+        hospital.modificarHorario(12, DayOfWeek.MONDAY, LocalTime.of(7,00), LocalTime.of(12,00));
+
+        hospital.crearCita(1,Especialidad.GENERAL,DayOfWeek.MONDAY,LocalTime.of(7,10));
+
+        CitaMedica resultado = hospital.buscarCita(1);
+        CitaMedica resultadoEsperado = hospital.buscarUltimaCitaMedica();
+
+        assertEquals(resultado,resultadoEsperado);
+        LOG.info("Fin prueba de funcionalidad buscarCita");
+    }
+
+    @Test
+    @DisplayName("Prueba de funcionalidad buscarMedico")
+    public void testBuscarMedico() {
+        LOG.info("Inicio prueba de funcionalidad buscarMedico");
+        Hospital hospital = new Hospital("Hospital1");
+        hospital.crearMedico(12,"lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
+        Medico medicoEsperado = null;
+        ArrayList<Medico> listTemp= hospital.getListMedicos();
+        for(Medico medico: listTemp){
+            if(medico.getNombre().equalsIgnoreCase("lina")){
+                medicoEsperado = medico;
+                break;
+            }
+        }
+        Medico resultado = hospital.buscarMedico(12);
+        assertEquals(medicoEsperado,resultado);
+        LOG.info("Fin Prueba de funcionalidad buscarMedico|");
+    }
+
+    @Test
+    @DisplayName("Prueba de funcionalidad buscarPaciente")
+    public void testBuscarPaciente() {
+        LOG.info("Inicio prueba buscarPaciente");
+        Hospital hospital = new Hospital("Hospital1");
+        hospital.crearPaciente(1, "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
+        Paciente pacienteEsperado = null;
+        ArrayList<Paciente> listTemp= hospital.getListPacientes();
+        for(Paciente paciente: listTemp){
+            if(paciente.getNombre().equalsIgnoreCase("luis")){
+                pacienteEsperado = paciente;
+                break;
+            }
+        }
+        Paciente resultado = hospital.buscarPaciente(1);
+        assertEquals(pacienteEsperado,resultado);
+        LOG.info("Fin prueba de buscarPaciente");
+    }
+
+    @Test
+    @DisplayName("Prueba de fucncionalidad crearSala")
+    public void testCrearSala() {
+        LOG.info("Inicio prueba de fucncionalidad crearSala");
+        Hospital hospital = new Hospital("Hospital1");
+        hospital.crearMedico(12,"lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
+        Boolean resultado = hospital.crearSala(1,12);
+        assertTrue(resultado);
+        LOG.info("Fin prueba de fucncionalidad crearSala");
+    }
+
+    @Test
+    @DisplayName("Prueba de funcionalidad buscarSala")
+    public void testBuscarSala() {
+        LOG.info("Inicio prueba de funcionalidad buscarSala");
+        Hospital hospital = new Hospital("Hospital1");
+        hospital.crearMedico(12,"lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
+        hospital.crearSala(1,12);
+        Sala salaEsperado=null;
+        Sala resultado = hospital.buscarSala(1);
+        ArrayList<Sala> listTemp= hospital.getListSalas();
+        for(Sala sala: listTemp){
+            if(sala.getNumeroSala() == 1){
+                salaEsperado = sala;
+                break;
+            }
+        }
+        assertEquals(salaEsperado,resultado);
+        LOG.info("Fin prueba de funcionalidad buscarSala");
+    }
+
 
 
 
