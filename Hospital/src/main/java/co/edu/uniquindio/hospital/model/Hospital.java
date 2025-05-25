@@ -291,12 +291,12 @@ public class Hospital {
 
     //PROCEDIMIENTOS
     //crearProcedimiento
-    public boolean crearProcedimiento(int id, TipoProcedimiento tipoProcedimiento, String descripcion, int idMedico) {
+    public boolean crearProcedimiento(int idPaciente, TipoProcedimiento tipoProcedimiento, String descripcion, int idMedico) {
         boolean flag = false;
         Medico medico = buscarMedico(idMedico);
-        if (buscarPaciente(id) != null) {
+        if (buscarPaciente(idPaciente) != null) {
             Procedimiento procedimiento = new Procedimiento(tipoProcedimiento, descripcion);
-            Paciente persona = buscarPaciente(id);
+            Paciente persona = buscarPaciente(idPaciente);
             medico.actualizarHistoria(procedimiento, persona);
             flag = true;
         }
@@ -371,7 +371,7 @@ public class Hospital {
                     CitaMedica nuevaCita= new CitaMedica(paciente,dia,horaInicio,medico,especialidad);
                     agregarSalaCita(nuevaCita);
                     listCitas.add(nuevaCita);
-                    nuevaCita.setAutorizacion(listCitas.size()+1);
+                    nuevaCita.setAutorizacion(listCitas.size());
                     flag = true;
                 }
             }

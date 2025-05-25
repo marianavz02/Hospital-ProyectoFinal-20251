@@ -6,6 +6,7 @@ import co.edu.uniquindio.hospital.model.Medico;
 import co.edu.uniquindio.hospital.model.Paciente;
 import co.edu.uniquindio.hospital.model.CitaMedica;
 import co.edu.uniquindio.hospital.model.Sala;
+import co.edu.uniquindio.hospital.model.TipoProcedimiento;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 
@@ -197,7 +198,55 @@ public class HospitalTest {
         LOG.info("Fin prueba de funcionalidad buscarSala");
     }
 
+    @Test
+    @DisplayName("Prueba de funcionalidad cancelarCita")
+    public void testCancelarCita() {
+        LOG.info("Inicio prueba de funcionalidad cancelarCita");
+        Hospital hospital = new Hospital("Hospital1");
+        hospital.crearPaciente(1, "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
+        hospital.crearMedico(12,"lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
+        hospital.modificarHorario(12, DayOfWeek.MONDAY, LocalTime.of(7,00), LocalTime.of(12,00));
+        hospital.crearCita(1,Especialidad.GENERAL,DayOfWeek.MONDAY,LocalTime.of(7,10));
+        CitaMedica cita = hospital.buscarUltimaCitaMedica();
+        int citaAutorizacio = cita.getAutorizacion();
 
+        Boolean resultado = hospital.cancelarCita(citaAutorizacio);
+        assertTrue(resultado);
+        LOG.info("Fin prueba de funcionalidad cancelarCita");
+    }
+
+    @Test
+    @DisplayName("Prueba de funcionalidad crearProcediminto")
+    public void testCrearProcediminto() {
+        LOG.info("Inicio prueba crearProcediminto");
+        Hospital hospital = new Hospital("Hospital1");
+        hospital.crearPaciente(1, "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
+        hospital.crearMedico(12,"lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
+        Boolean resultado = hospital.crearProcedimiento(1,TipoProcedimiento.DIAGNOSTICO,"Fiebre",12);
+        assertTrue(resultado);
+        LOG.info("Fin prueba crearProcediminto");
+    }
+
+    @Test
+    @DisplayName("Prueba de funcionalidad eliminarPaciente")
+    public void testEliminarPaciente() {
+        LOG.info("Inicio prueba eliminarPaciente");
+        Hospital hospital = new Hospital("Hospital1");
+        hospital.crearPaciente(1, "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
+        Boolean resultado = hospital.eliminarPaciente(1);
+        assertTrue(resultado);
+        LOG.info("Fin prueba eliminarPaciente");
+    }
+
+    @Test
+    @DisplayName("Prueba de funcionalidad eliminarMedico")
+    public void testEliminarMedico() {
+        LOG.info("Inicio prueba eliminarMedico");
+        Hospital hospital = new Hospital("Hospital1");
+        hospital.crearMedico(12,"lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
+        Boolean resultado = hospital.eliminarMedico(12);
+        LOG.info("Fin prueba eliminarMedico");
+    }
 
 
 }
