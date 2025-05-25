@@ -11,6 +11,7 @@ import org.junit.jupiter.api.DisplayName;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Map;
 import java.util.logging.Logger;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -42,6 +43,36 @@ public class HospitalTest {
         assertTrue(resultado);
         LOG.info("Fin prueba de funcionalidad crear medico");
     }
+
+    @Test
+    @DisplayName("Prueba de funcionalidad del metodo modificarHorario")
+    public void testModificarHorario() {
+        LOG.info("Inicio prueba de funcionalidad modificar horario");
+        Hospital hospital = new Hospital("Hospital1");
+        hospital.crearMedico(12,"lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
+        Boolean resultado = hospital.modificarHorario(12, DayOfWeek.MONDAY, LocalTime.of(7,00), LocalTime.of(12,00));
+        assertTrue(resultado);
+        LOG.info("Fin prueba de funcionalidad modificar horario");
+    }
+
+    @Test
+    @DisplayName("Prueba de funcionalidad del metodo mostrarHorario")
+    public void testMostrarHorario() {
+        LOG.info("Inicio prueba de funcionalidad mostrar horario");
+        Hospital hospital = new Hospital("Hospital1");
+        hospital.crearPaciente(1, "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
+        hospital.crearMedico(12,"lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
+        hospital.modificarHorario(12, DayOfWeek.MONDAY, LocalTime.of(7,00), LocalTime.of(12,00));
+
+        Medico medicobuscar = hospital.buscarMedico(12);
+        Map resultadoEsperado= medicobuscar.getHorarioDisponible();
+
+        Map resultado = hospital.mostrarHorario(12);
+        assertEquals(resultadoEsperado,resultado);
+        LOG.info("Fin prueba de funcionalidad mostrar horario");
+    }
+
+    
 
 
 
