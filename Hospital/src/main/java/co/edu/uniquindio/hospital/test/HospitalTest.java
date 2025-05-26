@@ -32,7 +32,7 @@ public class HospitalTest {
     public void testCrearPaciente() {
         LOG.info("Inicio prueba de funcionalidad crear paciente");
         Hospital hospital = new Hospital("Hospital1");
-        Boolean resultado = hospital.crearPaciente(1, "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
+        Boolean resultado = hospital.crearPaciente("1", "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
         assertTrue(resultado);
         LOG.info("Fin prueba de funcionalidad crear paciente");
     }
@@ -42,7 +42,7 @@ public class HospitalTest {
     public void testCrearMedico() {
         LOG.info("Inicio prueba de funcionalidad crear medico");
         Hospital hospital = new Hospital("Hospital1");
-        Boolean resultado =  hospital.crearMedico(12,"lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
+        Boolean resultado =  hospital.crearMedico("12","lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
         assertTrue(resultado);
         LOG.info("Fin prueba de funcionalidad crear medico");
     }
@@ -52,8 +52,8 @@ public class HospitalTest {
     public void testModificarHorario() {
         LOG.info("Inicio prueba de funcionalidad modificar horario");
         Hospital hospital = new Hospital("Hospital1");
-        hospital.crearMedico(12,"lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
-        Boolean resultado = hospital.modificarHorario(12, DayOfWeek.MONDAY, LocalTime.of(7,00), LocalTime.of(12,00));
+        hospital.crearMedico("12","lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
+        Boolean resultado = hospital.modificarHorario("12", DayOfWeek.MONDAY, LocalTime.of(7,00), LocalTime.of(12,00));
         assertTrue(resultado);
         LOG.info("Fin prueba de funcionalidad modificar horario");
     }
@@ -63,14 +63,14 @@ public class HospitalTest {
     public void testMostrarHorario() {
         LOG.info("Inicio prueba de funcionalidad mostrar horario");
         Hospital hospital = new Hospital("Hospital1");
-        hospital.crearPaciente(1, "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
-        hospital.crearMedico(12,"lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
-        hospital.modificarHorario(12, DayOfWeek.MONDAY, LocalTime.of(7,00), LocalTime.of(12,00));
+        hospital.crearPaciente("1", "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
+        hospital.crearMedico("12","lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
+        hospital.modificarHorario("12", DayOfWeek.MONDAY, LocalTime.of(7,00), LocalTime.of(12,00));
 
-        Medico medicobuscar = hospital.buscarMedico(12);
+        Medico medicobuscar = hospital.buscarMedico("12");
         Map resultadoEsperado= medicobuscar.getHorarioDisponible();
 
-        Map resultado = hospital.mostrarHorario(12);
+        Map resultado = hospital.mostrarHorario("12");
         assertEquals(resultadoEsperado,resultado);
         LOG.info("Fin prueba de funcionalidad mostrar horario");
     }
@@ -80,11 +80,11 @@ public class HospitalTest {
     @DisplayName("Prueba de funcionalidad metodo crearCita")
     public void testCrearCita() {
         Hospital hospital = new Hospital("Hospital1");
-        hospital.crearPaciente(1, "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
-        hospital.crearMedico(12,"lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
-        hospital.modificarHorario(12, DayOfWeek.MONDAY, LocalTime.of(7,00), LocalTime.of(12,00));
+        hospital.crearPaciente("1", "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
+        hospital.crearMedico("12","lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
+        hospital.modificarHorario("12", DayOfWeek.MONDAY, LocalTime.of(7,00), LocalTime.of(12,00));
 
-        boolean resultado= hospital.crearCita(1,Especialidad.GENERAL,DayOfWeek.MONDAY,LocalTime.of(7,10));
+        boolean resultado= hospital.crearCita("1",Especialidad.GENERAL,DayOfWeek.MONDAY,LocalTime.of(7,10));
 
         assertTrue(resultado);
 
@@ -97,11 +97,11 @@ public class HospitalTest {
         LOG.info("Inicio prueba de funcionalidad buscarUltimaCitaMedica");
         LOG.info(" Inicio Prueba de funcionalidad crearCita");
         Hospital hospital = new Hospital("Hospital1");
-        hospital.crearPaciente(1, "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
-        hospital.crearMedico(12,"lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
-        hospital.modificarHorario(12, DayOfWeek.MONDAY, LocalTime.of(7,00), LocalTime.of(12,00));
+        hospital.crearPaciente("1", "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
+        hospital.crearMedico("12","lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
+        hospital.modificarHorario("12", DayOfWeek.MONDAY, LocalTime.of(7,00), LocalTime.of(12,00));
 
-        hospital.crearCita(1,Especialidad.GENERAL,DayOfWeek.MONDAY,LocalTime.of(7,10));
+        hospital.crearCita("1",Especialidad.GENERAL,DayOfWeek.MONDAY,LocalTime.of(7,10));
 
         CitaMedica esperado = hospital.buscarCita(1);
         CitaMedica resultado = hospital.buscarUltimaCitaMedica();
@@ -116,11 +116,11 @@ public class HospitalTest {
         LOG.info("Inicio prueba de funcionalidad buscarCita");
         LOG.info(" Inicio Prueba de funcionalidad crearCita");
         Hospital hospital = new Hospital("Hospital1");
-        hospital.crearPaciente(1, "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
-        hospital.crearMedico(12,"lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
-        hospital.modificarHorario(12, DayOfWeek.MONDAY, LocalTime.of(7,00), LocalTime.of(12,00));
+        hospital.crearPaciente("1", "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
+        hospital.crearMedico("12","lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
+        hospital.modificarHorario("12", DayOfWeek.MONDAY, LocalTime.of(7,00), LocalTime.of(12,00));
 
-        hospital.crearCita(1,Especialidad.GENERAL,DayOfWeek.MONDAY,LocalTime.of(7,10));
+        hospital.crearCita("1",Especialidad.GENERAL,DayOfWeek.MONDAY,LocalTime.of(7,10));
 
         CitaMedica resultado = hospital.buscarCita(1);
         CitaMedica resultadoEsperado = hospital.buscarUltimaCitaMedica();
@@ -134,7 +134,7 @@ public class HospitalTest {
     public void testBuscarMedico() {
         LOG.info("Inicio prueba de funcionalidad buscarMedico");
         Hospital hospital = new Hospital("Hospital1");
-        hospital.crearMedico(12,"lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
+        hospital.crearMedico("12","lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
         Medico medicoEsperado = null;
         ArrayList<Medico> listTemp= hospital.getListMedicos();
         for(Medico medico: listTemp){
@@ -143,7 +143,7 @@ public class HospitalTest {
                 break;
             }
         }
-        Medico resultado = hospital.buscarMedico(12);
+        Medico resultado = hospital.buscarMedico("12");
         assertEquals(medicoEsperado,resultado);
         LOG.info("Fin Prueba de funcionalidad buscarMedico|");
     }
@@ -153,7 +153,7 @@ public class HospitalTest {
     public void testBuscarPaciente() {
         LOG.info("Inicio prueba buscarPaciente");
         Hospital hospital = new Hospital("Hospital1");
-        hospital.crearPaciente(1, "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
+        hospital.crearPaciente("1", "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
         Paciente pacienteEsperado = null;
         ArrayList<Paciente> listTemp= hospital.getListPacientes();
         for(Paciente paciente: listTemp){
@@ -162,7 +162,7 @@ public class HospitalTest {
                 break;
             }
         }
-        Paciente resultado = hospital.buscarPaciente(1);
+        Paciente resultado = hospital.buscarPaciente("1");
         assertEquals(pacienteEsperado,resultado);
         LOG.info("Fin prueba de buscarPaciente");
     }
@@ -172,8 +172,8 @@ public class HospitalTest {
     public void testCrearSala() {
         LOG.info("Inicio prueba de fucncionalidad crearSala");
         Hospital hospital = new Hospital("Hospital1");
-        hospital.crearMedico(12,"lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
-        Boolean resultado = hospital.crearSala(1,12);
+        hospital.crearMedico("12","lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
+        Boolean resultado = hospital.crearSala(1,"12");
         assertTrue(resultado);
         LOG.info("Fin prueba de fucncionalidad crearSala");
     }
@@ -183,8 +183,8 @@ public class HospitalTest {
     public void testBuscarSala() {
         LOG.info("Inicio prueba de funcionalidad buscarSala");
         Hospital hospital = new Hospital("Hospital1");
-        hospital.crearMedico(12,"lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
-        hospital.crearSala(1,12);
+        hospital.crearMedico("12","lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
+        hospital.crearSala(1,"12");
         Sala salaEsperado=null;
         Sala resultado = hospital.buscarSala(1);
         ArrayList<Sala> listTemp= hospital.getListSalas();
@@ -203,10 +203,10 @@ public class HospitalTest {
     public void testCancelarCita() {
         LOG.info("Inicio prueba de funcionalidad cancelarCita");
         Hospital hospital = new Hospital("Hospital1");
-        hospital.crearPaciente(1, "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
-        hospital.crearMedico(12,"lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
-        hospital.modificarHorario(12, DayOfWeek.MONDAY, LocalTime.of(7,00), LocalTime.of(12,00));
-        hospital.crearCita(1,Especialidad.GENERAL,DayOfWeek.MONDAY,LocalTime.of(7,10));
+        hospital.crearPaciente("1", "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
+        hospital.crearMedico("12","lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
+        hospital.modificarHorario("12", DayOfWeek.MONDAY, LocalTime.of(7,00), LocalTime.of(12,00));
+        hospital.crearCita("1",Especialidad.GENERAL,DayOfWeek.MONDAY,LocalTime.of(7,10));
         CitaMedica cita = hospital.buscarUltimaCitaMedica();
         int citaAutorizacio = cita.getAutorizacion();
 
@@ -220,9 +220,9 @@ public class HospitalTest {
     public void testCrearProcediminto() {
         LOG.info("Inicio prueba crearProcediminto");
         Hospital hospital = new Hospital("Hospital1");
-        hospital.crearPaciente(1, "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
-        hospital.crearMedico(12,"lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
-        Boolean resultado = hospital.crearProcedimiento(1,TipoProcedimiento.DIAGNOSTICO,"Fiebre",12);
+        hospital.crearPaciente("1", "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
+        hospital.crearMedico("12","lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
+        Boolean resultado = hospital.crearProcedimiento("1",TipoProcedimiento.DIAGNOSTICO,"Fiebre","12");
         assertTrue(resultado);
         LOG.info("Fin prueba crearProcediminto");
     }
@@ -232,8 +232,8 @@ public class HospitalTest {
     public void testEliminarPaciente() {
         LOG.info("Inicio prueba eliminarPaciente");
         Hospital hospital = new Hospital("Hospital1");
-        hospital.crearPaciente(1, "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
-        Boolean resultado = hospital.eliminarPaciente(1);
+        hospital.crearPaciente("1", "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
+        Boolean resultado = hospital.eliminarPaciente("1");
         assertTrue(resultado);
         LOG.info("Fin prueba eliminarPaciente");
     }
@@ -243,8 +243,8 @@ public class HospitalTest {
     public void testEliminarMedico() {
         LOG.info("Inicio prueba eliminarMedico");
         Hospital hospital = new Hospital("Hospital1");
-        hospital.crearMedico(12,"lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
-        Boolean resultado = hospital.eliminarMedico(12);
+        hospital.crearMedico("12","lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
+        Boolean resultado = hospital.eliminarMedico("12");
         LOG.info("Fin prueba eliminarMedico");
     }
 

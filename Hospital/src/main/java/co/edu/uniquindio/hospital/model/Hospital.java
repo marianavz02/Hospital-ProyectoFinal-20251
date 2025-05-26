@@ -87,7 +87,7 @@ public class Hospital {
     //METODOS DE LA CLASE
 
     //Buscar paciente id
-    public Paciente buscarPaciente(int id) {
+    public Paciente buscarPaciente(String id) {
         Paciente pacienteEncontrado = null;
         for (Paciente paciente : listPacientes) {
             if (paciente.getId() == id) {
@@ -99,7 +99,7 @@ public class Hospital {
     }
 
     //Buscar medico id
-    public Medico buscarMedico(int id) {
+    public Medico buscarMedico(String id) {
         Medico medicoEncontrado = null;
         for (Medico medico : listMedicos) {
             if (medico.getId() == id) {
@@ -153,7 +153,7 @@ public class Hospital {
 
     //CRUD MEDICO y horario
     //Modificar Horario
-    public boolean modificarHorario(int idMedico, DayOfWeek day, LocalTime horaInicio, LocalTime horaFin) {
+    public boolean modificarHorario(String idMedico, DayOfWeek day, LocalTime horaInicio, LocalTime horaFin) {
         boolean flag = false;
         if (buscarMedico(idMedico) != null) {
             Medico medico = buscarMedico(idMedico);
@@ -164,7 +164,7 @@ public class Hospital {
     }
 
     //mostrarHorario medico
-    public Map mostrarHorario(int idMedico) {
+    public Map mostrarHorario(String idMedico) {
         Map map = new HashMap();
         if (buscarMedico(idMedico) != null) {
             Medico medico = buscarMedico(idMedico);
@@ -177,7 +177,7 @@ public class Hospital {
 
 
     //crear medico
-    public boolean crearMedico(int id, String nombre, String telefono, String email,
+    public boolean crearMedico(String id, String nombre, String telefono, String email,
                                String direccion, LocalDate fechaNacimiento, Especialidad especialidad) {
         boolean flag = false;
         if (buscarMedico(id) == null) {
@@ -189,7 +189,7 @@ public class Hospital {
     }
 
     //eliminar medico
-    public boolean eliminarMedico(int id) {
+    public boolean eliminarMedico(String id) {
         boolean flag = false;
         if (buscarMedico(id).equals(id)) {
             listMedicos.remove(buscarMedico(id));
@@ -199,7 +199,7 @@ public class Hospital {
     }
 
     //actualizar medico
-    public boolean actualizarMedico(int id, String nombre, String telefono, String email,
+    public boolean actualizarMedico(String id, String nombre, String telefono, String email,
                                     String direccion, LocalDate fechaNacimiento, Especialidad especialidad) {
         boolean flag = false;
         Medico medicoActualizar = buscarMedico(id);
@@ -216,7 +216,7 @@ public class Hospital {
     }
 
     //Mostrar medico
-    public String mostrarMedico(int id) {
+    public String mostrarMedico(String id) {
         Medico medico = buscarMedico(id);
         String medicoMostrar = null;
         if (medico != null) {
@@ -236,7 +236,7 @@ public class Hospital {
 
     //CRUD PACIENTE
     // crear paciente
-    public boolean crearPaciente(int id, String nombre, String telefono, String email, String direccion, LocalDate fechaNacimiento) {
+    public boolean crearPaciente(String id, String nombre, String telefono, String email, String direccion, LocalDate fechaNacimiento) {
         boolean flag = false;
         if (buscarPaciente(id) == null) {
             Paciente nuevoPaciente = new Paciente(id, nombre, telefono, email, direccion, fechaNacimiento);
@@ -247,7 +247,7 @@ public class Hospital {
     }
 
     // eliminar paciente
-    public boolean eliminarPaciente(int id) {
+    public boolean eliminarPaciente(String id) {
         boolean flag = false;
         if (buscarPaciente(id) != null) {
             listPacientes.remove(buscarPaciente(id));
@@ -257,7 +257,7 @@ public class Hospital {
     }
 
     // actualizar paciente
-    public boolean actualizarPaciente(int id, String nombre, String telefono, String email, String direccion, LocalDate fechaNacimiento) {
+    public boolean actualizarPaciente(String id, String nombre, String telefono, String email, String direccion, LocalDate fechaNacimiento) {
         boolean flag = false;
         Paciente pacienteActualizar = buscarPaciente(id);
         if (pacienteActualizar != null) {
@@ -272,7 +272,7 @@ public class Hospital {
     }
 
     //mostrar paciente
-    public String mostrarPaciente(int id) {
+    public String mostrarPaciente(String id) {
         Paciente paciente = buscarPaciente(id);
         String pacienteMostrar = null;
         if (paciente != null) {
@@ -291,7 +291,7 @@ public class Hospital {
 
     //PROCEDIMIENTOS
     //crearProcedimiento
-    public boolean crearProcedimiento(int idPaciente, TipoProcedimiento tipoProcedimiento, String descripcion, int idMedico) {
+    public boolean crearProcedimiento(String idPaciente, TipoProcedimiento tipoProcedimiento, String descripcion, String idMedico) {
         boolean flag = false;
         Medico medico = buscarMedico(idMedico);
         if (buscarPaciente(idPaciente) != null) {
@@ -310,7 +310,7 @@ public class Hospital {
 
     //SALA
     //crear sala
-    public boolean crearSala(int codigoSala, int idMedico) {
+    public boolean crearSala(int codigoSala, String idMedico) {
         boolean flag = false;
         if (buscarMedico(idMedico) != null) {
             if (buscarSala(codigoSala) == null) {
@@ -323,7 +323,7 @@ public class Hospital {
         return flag;
     }
 
-    public boolean actualizarSala(int codigoSala, int idMedico) {
+    public boolean actualizarSala(int codigoSala, String idMedico) {
         boolean flag = false;
         Sala sala = buscarSala(codigoSala);
         if (sala != null) {
@@ -361,7 +361,7 @@ public class Hospital {
 
 
     //crear cita
-    public boolean crearCita(int idPaciente, Especialidad especialidad, DayOfWeek dia, LocalTime horaInicio) {
+    public boolean crearCita(String idPaciente, Especialidad especialidad, DayOfWeek dia, LocalTime horaInicio) {
         boolean flag = false;
         Paciente paciente = null;
         if (buscarPaciente(idPaciente) != null) {
@@ -412,6 +412,34 @@ public class Hospital {
         Horario horarioTemp = medico.getHorarioDisponible().get(dia);
         if (hora.isAfter(horarioTemp.getInicio()) && hora.isBefore(horarioTemp.getFin())) {
             flag = true;
+        }return flag;
+    }
+
+    public boolean iniciarCesionGeneral (String id, String email) {
+        boolean flag = false;
+        Paciente buscarPaciente = buscarPaciente(id);
+        Medico buscarMedico = buscarMedico(id);
+        if(buscarPaciente!=null) {
+            boolean inicioCesion = buscarPaciente.iniciarCesion(id,email,buscarPaciente);
+            if(inicioCesion == true) {
+                flag = true;
+            }
+        } else if (buscarMedico != null) {
+            boolean inicioCesion = buscarMedico.iniciarCesion(id,email,buscarMedico);
+            if(inicioCesion == true) {
+                flag = true;
+            }
+        }return flag;
+    }
+
+    public boolean iniciarCesionAdmin(String id, String email) {
+        boolean flag = false;
+        Medico buscar = buscarMedico(id);
+        if(buscar!=null && buscar.getEspecialidad().equals(Especialidad.ADMINISTRADOR)) {
+            boolean inicioCesion = buscar.iniciarCesion(id,email,buscar);
+            if(inicioCesion == true) {
+                flag = true;
+            }
         }return flag;
     }
 

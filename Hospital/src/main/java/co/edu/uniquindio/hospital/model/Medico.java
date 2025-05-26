@@ -3,6 +3,7 @@ package co.edu.uniquindio.hospital.model;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,7 +11,7 @@ public class Medico extends Persona implements ICerrarCesion , IActualizarHistor
     private Especialidad especialidad;
     private Map<DayOfWeek,Horario> horarioDisponible;
 
-    public Medico(int id, String nombre, String telefono, String email, String direccion, LocalDate fechaNacimiento, Especialidad especialidad) {
+    public Medico(String id, String nombre, String telefono, String email, String direccion, LocalDate fechaNacimiento, Especialidad especialidad) {
         super(id, nombre, telefono, email, direccion, fechaNacimiento);
         this.especialidad = especialidad;
         this.horarioDisponible = new HashMap<>();
@@ -49,9 +50,9 @@ public class Medico extends Persona implements ICerrarCesion , IActualizarHistor
     }
 
     @Override
-    public boolean iniciarCesion(int id, String email, Persona persona) {
+    public boolean iniciarCesion(String id, String email, Persona persona) {
         boolean flag = false;
-        if(persona instanceof Medico && persona.getEmail().equals(email) && persona.getDireccion().equals(direccion)) {
+        if(persona instanceof Medico && persona.getEmail().equals(email) && persona.getId().equals(id)) {
             flag = true;
         }
         return flag;

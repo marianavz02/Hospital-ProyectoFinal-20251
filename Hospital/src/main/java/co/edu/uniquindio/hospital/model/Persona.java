@@ -3,14 +3,14 @@ package co.edu.uniquindio.hospital.model;
 import java.time.LocalDate;
 
 public abstract class Persona implements ICerrarCesion {
-    public int id;
+    public String id;
     public String nombre;
     public String telefono;
     public String email;
     public String direccion;
     public LocalDate fechaNacimiento;
 
-    public Persona(int id, String nombre, String telefono, String email, String direccion, LocalDate fechaNacimiento) {
+    public Persona(String id, String nombre, String telefono, String email, String direccion, LocalDate fechaNacimiento) {
         this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
@@ -27,11 +27,11 @@ public abstract class Persona implements ICerrarCesion {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -78,5 +78,5 @@ public abstract class Persona implements ICerrarCesion {
                 '}';
     }
 
-    public abstract boolean iniciarCesion(int id, String email, Persona persona);
+    public abstract boolean iniciarCesion(String id, String email, Persona persona);
 }

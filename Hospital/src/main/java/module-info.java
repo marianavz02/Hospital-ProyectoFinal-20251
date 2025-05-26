@@ -3,7 +3,8 @@ module co.edu.uniquindio.hospital {
     requires javafx.fxml;
     requires org.junit.jupiter.api;
     requires java.logging;
-
+    requires java.desktop;
+    requires org.testng;
 
 
     opens co.edu.uniquindio.hospital to javafx.fxml;

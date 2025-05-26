@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="co.edu.uniquindio.hospital.controller.HospitalController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="544.0" prefWidth="932.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.viewController.HospitalViewController">
+   <children>
+      <Ellipse fill="#a8d5ff" layoutX="462.0" layoutY="198.0" radiusX="237.0" radiusY="104.0" stroke="BLACK" strokeType="INSIDE" />
+      <Button fx:id="btnUsuario" layoutX="522.0" layoutY="340.0" mnemonicParsing="false" onAction="#click" prefHeight="114.0" prefWidth="242.0" text="USUARIO">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnTrabajador" layoutX="174.0" layoutY="340.0" mnemonicParsing="false" onAction="#click" prefHeight="114.0" prefWidth="242.0" text="TRABAJADOR">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font>
+      </Button>
+      <Label layoutX="296.0" layoutY="162.0" text="HOSPITAL">
+         <font>
+            <Font name="Times New Roman Bold" size="64.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnAdmin" layoutX="815.0" layoutY="14.0" mnemonicParsing="false" onAction="#click" prefHeight="32.0" prefWidth="102.0" text="ADMIN">
+         <font>
+            <Font name="Times New Roman Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>
