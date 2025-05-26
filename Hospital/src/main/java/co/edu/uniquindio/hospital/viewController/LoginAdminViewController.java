@@ -1,7 +1,7 @@
 package co.edu.uniquindio.hospital.viewController;
 
 import co.edu.uniquindio.hospital.App;
-import co.edu.uniquindio.hospital.controller.LoginController;
+import co.edu.uniquindio.hospital.controller.HospitalController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
 
 public class LoginAdminViewController {
     App app;
-    LoginController loginController;
+    HospitalController hospitalController;
 
     @FXML
     private ResourceBundle resources;
@@ -42,8 +42,11 @@ public class LoginAdminViewController {
             if(!txtEmail.getText().isEmpty() && !txtContraseña.getText().isEmpty()) {
                 String email = txtEmail.getText();
                 String contraseña = txtContraseña.getText();
-                if(loginController.iniciarCesionAdmin(email,contraseña) == true){
+                boolean valido = hospitalController.iniciarCesionAdmin(contraseña, email);
+                if(valido = true){
                     //app.Open
+                }else{
+                    JOptionPane.showMessageDialog(null, "Los datos son incorrectos", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
                 }
 
             }else{
@@ -69,9 +72,18 @@ public class LoginAdminViewController {
         assert txtContraseña != null : "fx:id=\"txtContraseña\" was not injected: check your FXML file 'LoginAdmin.fxml'.";
         assert txtEmail != null : "fx:id=\"txtEmail\" was not injected: check your FXML file 'LoginAdmin.fxml'.";
 
+
+
+
     }
 
     public void setApp(App app) {
         this.app = app;
     }
+
+    public void setHospitalController(HospitalController hospitalController) {
+        this.hospitalController = hospitalController;
+    }
+
+
 }

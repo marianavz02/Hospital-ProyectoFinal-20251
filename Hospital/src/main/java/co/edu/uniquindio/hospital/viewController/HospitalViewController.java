@@ -3,6 +3,8 @@ package co.edu.uniquindio.hospital.viewController;
 import co.edu.uniquindio.hospital.App;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import co.edu.uniquindio.hospital.controller.HospitalController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -10,6 +12,7 @@ import javafx.scene.control.Button;
 
 public class HospitalViewController {
     App app;
+    HospitalController hospitalController;
 
     @FXML
     private ResourceBundle resources;
@@ -46,6 +49,10 @@ public class HospitalViewController {
 
     public void setApp(App app) {
         this.app = app;
+    }
+
+    public void setHospitalController(HospitalController hospitalController) {
+        this.hospitalController = hospitalController;
     }
 
 }

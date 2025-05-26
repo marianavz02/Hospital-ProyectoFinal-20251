@@ -37,7 +37,7 @@ public class Paciente extends Persona{
     @Override
     public boolean iniciarCesion(String id, String email, Persona persona){
         boolean flag = false;
-        if (persona instanceof Paciente && persona.getId().equals(id) && persona.getEmail().equals(email)) {
+        if (persona instanceof Paciente && persona.getId().equals(id) && persona.getEmail().equalsIgnoreCase(email)) {
             flag = true;
         }
         return flag;

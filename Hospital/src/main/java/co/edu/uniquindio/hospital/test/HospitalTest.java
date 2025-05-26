@@ -248,5 +248,15 @@ public class HospitalTest {
         LOG.info("Fin prueba eliminarMedico");
     }
 
+    @Test
+    @DisplayName("Prueba funcionalidad iniciarCesionGeneral")
+    public void testIniciarCesionGeneral() {
+        LOG.info("Inicio prueba iniciarCesionGeneral");
+        Hospital hospital = new Hospital("Hospital1");
+        hospital.crearMedico("12","lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
+        Boolean resultado = hospital.iniciarCesionGeneral("12","lina@");
+        assertTrue(resultado);
+    }
+
 
 }

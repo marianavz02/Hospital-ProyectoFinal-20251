@@ -1,25 +1,21 @@
 package co.edu.uniquindio.hospital.viewController;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.hospital.App;
-import co.edu.uniquindio.hospital.controller.LoginController;
-import co.edu.uniquindio.hospital.model.Hospital;
-import co.edu.uniquindio.hospital.controller.LoginController;
+import co.edu.uniquindio.hospital.controller.HospitalController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
-import org.testng.reporters.jq.Main;
 
 import javax.swing.*;
 
 
 public class LoginViewController {
     App app;
-    LoginController loginController;
+    HospitalController hospitalController;
 
     @FXML
     private ResourceBundle resources;
@@ -47,16 +43,17 @@ public class LoginViewController {
             if(!txtEmail.getText().isEmpty() && !txtContraseña.getText().isEmpty()) {
                 String email = txtEmail.getText();
                 String contraseña = txtContraseña.getText();
-                if(loginController.iniciarCesionGeneral(email,contraseña) == true){
-                    //app.Open
+                boolean valido = hospitalController.iniciarCesionGeneral(contraseña, email);
+                if(valido = true){
+                    app.openMedico();
+                }else if(valido = false){
+                    JOptionPane.showMessageDialog(null, "Los datos son incorrectos", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
                 }
-
             }else{
                 JOptionPane.showMessageDialog(null, "Los datos son incorrectos", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
             }
         } else if (clicked == btnVolver) {
             app.openHospital();
-
         }
 
     }
@@ -78,6 +75,9 @@ public class LoginViewController {
 
     public void setApp(App app) {
         this.app = app;
+    }
+    public void setHospitalController(HospitalController hospitalController) {
+        this.hospitalController = hospitalController;
     }
 
 

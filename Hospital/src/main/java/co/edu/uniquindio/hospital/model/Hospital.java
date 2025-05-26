@@ -90,7 +90,7 @@ public class Hospital {
     public Paciente buscarPaciente(String id) {
         Paciente pacienteEncontrado = null;
         for (Paciente paciente : listPacientes) {
-            if (paciente.getId() == id) {
+            if (paciente.getId().equals(id)) {
                 pacienteEncontrado = paciente;
                 break;
             }
@@ -102,7 +102,7 @@ public class Hospital {
     public Medico buscarMedico(String id) {
         Medico medicoEncontrado = null;
         for (Medico medico : listMedicos) {
-            if (medico.getId() == id) {
+            if (medico.getId().equals(id)) {
                 medicoEncontrado = medico;
                 break;
             }
@@ -173,6 +173,33 @@ public class Hospital {
         return map;
     }
 
+    //mostrarHorario string medico
+    public String mostrarHorarioString (String idMedico){
+        String str = "";
+        Medico medico = buscarMedico(idMedico);
+        System.out.println(medico.getHorarioDisponible());
+        Map map = medico.getHorarioDisponible();
+        for(Object key : map.keySet()){
+            str += key.toString() + " " + map.get(key).toString()+"\n";
+        }System.out.println("Contenido del string generado:\n" + str);
+        return str;
+    }
+
+    //Lista citas medico
+    public String mostrarCitasPorMedico(String idMedico){
+        ArrayList listaCitastemp = new ArrayList();
+        String citas = "";
+        if (buscarMedico(idMedico) != null) {
+            Medico medico = buscarMedico(idMedico);
+            for (CitaMedica citaMedica : listCitas) {
+                if(citaMedica.getProfesional().equals(medico)){
+                    listaCitastemp.add(citaMedica);
+                    citas+=citaMedica.toString();
+                }
+            }
+        }return citas;
+    }
+
 
 
 
@@ -191,7 +218,7 @@ public class Hospital {
     //eliminar medico
     public boolean eliminarMedico(String id) {
         boolean flag = false;
-        if (buscarMedico(id).equals(id)) {
+        if (buscarMedico(id).getId().equals(id)) {
             listMedicos.remove(buscarMedico(id));
             flag = true;
         }
@@ -390,21 +417,19 @@ public class Hospital {
     }
 
 
-
-
     public boolean medicoDisponible(Medico medico, LocalTime horaInicio, DayOfWeek dia) {
-        boolean flag = false;
-        ArrayList<CitaMedica> listCitasChoque = new ArrayList();
-        for (CitaMedica citaMedica : listCitasChoque) {
-            if (citaMedica.getProfesional().equals(medico) && horaInicio.equals(citaMedica.getHoraInicio()) && citaMedica.getDiaSemana().equals(dia)) {
-                listCitasChoque.add(citaMedica);
+        boolean flag = true;
+        for (CitaMedica citaMedica : listCitas) {
+            if (citaMedica.getProfesional().equals(medico) &&
+                    citaMedica.getHoraInicio().equals(horaInicio) &&
+                    citaMedica.getDiaSemana().equals(dia)) {
+                flag = false;
             }
-        }
-        if (listCitasChoque.isEmpty()) {
-            flag = true;
         }
         return flag;
     }
+
+
 
 
     public boolean horaDentroDeHorario (LocalTime hora, Medico medico, DayOfWeek dia) {
@@ -417,8 +442,9 @@ public class Hospital {
 
     public boolean iniciarCesionGeneral (String id, String email) {
         boolean flag = false;
-        Paciente buscarPaciente = buscarPaciente(id);
-        Medico buscarMedico = buscarMedico(id);
+        Persona buscarPaciente = buscarPaciente(id);
+        Persona buscarMedico = buscarMedico(id);
+
         if(buscarPaciente!=null) {
             boolean inicioCesion = buscarPaciente.iniciarCesion(id,email,buscarPaciente);
             if(inicioCesion == true) {

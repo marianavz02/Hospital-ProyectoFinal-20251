@@ -52,7 +52,7 @@ public class Medico extends Persona implements ICerrarCesion , IActualizarHistor
     @Override
     public boolean iniciarCesion(String id, String email, Persona persona) {
         boolean flag = false;
-        if(persona instanceof Medico && persona.getEmail().equals(email) && persona.getId().equals(id)) {
+        if(persona instanceof Medico && persona.getEmail().equalsIgnoreCase(email) && persona.getId().equals(id)) {
             flag = true;
         }
         return flag;

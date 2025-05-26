@@ -1,14 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="co.edu.uniquindio.hospital.viewController.MedicoViewController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="589.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.viewController.MedicoViewController">
+   <children>
+      <TabPane layoutX="8.0" layoutY="124.0" prefHeight="422.0" prefWidth="614.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="btnHorario" text="Horario">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="411.0" prefWidth="614.0" style="-fx-background-color: #c0c3c4;">
+                     <children>
+                        <TableView fx:id="tabHorario" layoutX="117.0" layoutY="21.0" prefHeight="86.0" prefWidth="379.0">
+                          <columns>
+                            <TableColumn fx:id="tabLunes" prefWidth="75.0" text="LUN" />
+                            <TableColumn fx:id="tabMartes" prefWidth="75.0" text="MAR" />
+                              <TableColumn fx:id="tabMiercoles" prefWidth="75.0" text="MIE" />
+                              <TableColumn fx:id="tabJueves" prefWidth="75.0" text="JUE" />
+                              <TableColumn fx:id="tabViernes" prefWidth="75.0" text="VIE" />
+                          </columns>
+                        </TableView>
+                        <Accordion layoutX="164.0" layoutY="205.0" />
+                        <TextField fx:id="txtIdMedicoHorario" layoutX="243.0" layoutY="162.0" onKeyTyped="#escribir" />
+                        <TextField fx:id="txtHoraInicioHora" layoutX="243.0" layoutY="267.0" prefWidth="63.0" />
+                        <TextField fx:id="txtHoraFinalHora" layoutX="244.0" layoutY="303.0" prefHeight="26.0" prefWidth="61.0" />
+                        <Label layoutX="146.0" layoutY="165.0" text="Identificacion">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="146.0" layoutY="205.0" text=" Dia Semana">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="145.0" layoutY="270.0" text="Hora Inicio">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="153.0" layoutY="306.0" text="Hora Fin">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <ChoiceBox fx:id="choiceDiaSemana" layoutX="243.0" layoutY="203.0" prefWidth="150.0" />
+                        <TextField fx:id="txtHoraInicioMinutos" layoutX="318.0" layoutY="267.0" prefWidth="63.0" />
+                        <TextField fx:id="txtHoraFinalMinutos" layoutX="319.0" layoutY="303.0" prefHeight="26.0" prefWidth="61.0" />
+                        <Label layoutX="259.0" layoutY="239.0" prefHeight="20.0" prefWidth="41.0" text="Hora">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="327.0" layoutY="239.0" prefHeight="20.0" prefWidth="45.0" text="Minuto">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btnIngresarHorario" layoutX="292.0" layoutY="345.0" mnemonicParsing="false" onAction="#click" text="GUARDAR">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="btnMostrarHorario" layoutX="414.0" layoutY="162.0" mnemonicParsing="false" onAction="#click" text="MostrarHorario">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="btnProcedimiento" text="Procedimiento">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #c0c3c4;">
+                     <children>
+                        <Button fx:id="btnIngresarProcedimiento" layoutX="271.0" layoutY="346.0" mnemonicParsing="false" onAction="#click" text="INGRESAR" />
+                        <Label layoutX="69.0" layoutY="64.0" text="Identificacion paciente" />
+                        <Label layoutX="74.0" layoutY="301.0" text="Identificacion medico" />
+                        <Label layoutX="78.0" layoutY="102.0" text="Tipo Procedimiento" />
+                        <Label layoutX="98.0" layoutY="141.0" text="Descripcion" />
+                        <TextField fx:id="txtIdPacienteProcedimiento" layoutX="195.0" layoutY="60.0" onKeyTyped="#escribir" prefHeight="26.0" prefWidth="188.0" />
+                        <TextArea fx:id="txtDescripcion" layoutX="197.0" layoutY="137.0" onKeyTyped="#escribir" prefHeight="146.0" prefWidth="379.0" />
+                        <TextField fx:id="txtIdMedicoProcedimiento" layoutX="197.0" layoutY="297.0" onKeyTyped="#escribir" prefHeight="26.0" prefWidth="200.0" />
+                        <ChoiceBox fx:id="choiceProcedimiento" layoutX="196.0" layoutY="98.0" prefHeight="26.0" prefWidth="186.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="btnHistoria" text="Historial">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #c0c3c4;">
+                     <children>
+                        <Button fx:id="btnBuscarHistorial" layoutX="259.0" layoutY="10.0" mnemonicParsing="false" onAction="#click" text="BUSCAR" />
+                        <Label layoutX="23.0" layoutY="14.0" text="idPaciente" />
+                        <TextField fx:id="txtIdPacienteHistorial" layoutX="89.0" layoutY="10.0" />
+                        <TableView fx:id="tabHistoriaGeneral" layoutX="22.0" layoutY="50.0" prefHeight="331.0" prefWidth="579.0">
+                          <columns>
+                            <TableColumn fx:id="tabHistoriaMedica" prefWidth="554.4000186920166" text="Historia Medica" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Separator layoutX="631.0" layoutY="18.0" orientation="VERTICAL" prefHeight="546.0" prefWidth="9.0" style="-fx-background-color: #adc8de;" />
+      <Ellipse fill="#d0e8ff" layoutX="750.0" layoutY="65.0" radiusX="100.0" radiusY="47.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label layoutX="673.0" layoutY="55.0" text="NOTIFICACIONES">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Ellipse fill="#d0e8ff" layoutX="317.0" layoutY="65.0" radiusX="116.0" radiusY="47.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label layoutX="278.0" layoutY="55.0" text="MEDICO">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnCerrarCesion" layoutX="717.0" layoutY="551.0" mnemonicParsing="false" onAction="#click" text=" Cerrar Cesion">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <TableView fx:id="tabCitasGeneral" layoutX="663.0" layoutY="123.0" prefHeight="356.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="tabCitas" prefWidth="190.4000244140625" text="citas" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnMostrarCitas" layoutX="721.0" layoutY="488.0" mnemonicParsing="false" onAction="#click" text="MostrarCitas" />
+   </children>
 </AnchorPane>
