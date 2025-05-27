@@ -182,6 +182,7 @@ public class App extends Application {
     public void inicializarData(){
         hospital.crearPaciente("1", "Luis", "314288", "luis@", "cra18",LocalDate.of(2000,02,5));
         hospital.crearMedico("12","lina", "314555", "lina@", "cra 16", LocalDate.of(2000,02,04), Especialidad.GENERAL);
+        hospital.crearMedico("123","Maria","312","maria@","cra12", LocalDate.of(2000,03,04), Especialidad.ADMINISTRADOR);
         hospital.modificarHorario("12", DayOfWeek.MONDAY, LocalTime.of(7,00), LocalTime.of(12,00));
         hospital.crearCita("1",Especialidad.GENERAL,DayOfWeek.MONDAY,LocalTime.of(7,10));
     }

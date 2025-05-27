@@ -43,8 +43,8 @@ public class LoginAdminViewController {
                 String email = txtEmail.getText();
                 String contraseña = txtContraseña.getText();
                 boolean valido = hospitalController.iniciarCesionAdmin(contraseña, email);
-                if(valido = true){
-                    //app.Open
+                if(valido == true){
+                    app.openAdmin();
                 }else{
                     JOptionPane.showMessageDialog(null, "Los datos son incorrectos", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
                 }
