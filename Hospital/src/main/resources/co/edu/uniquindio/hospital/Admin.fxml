@@ -1,14 +1,650 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="co.edu.uniquindio.hospital.viewController.AdminViewController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="563.0" prefWidth="836.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.viewController.AdminViewController">
+   <children>
+      <TabPane layoutX="14.0" layoutY="88.0" prefHeight="464.0" prefWidth="808.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Pacientes">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane layoutX="3.0" layoutY="8.0" prefHeight="430.0" prefWidth="808.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                              <Tab text="ReportesPacientes">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="332.0" prefWidth="760.0">
+                                       <children>
+                                          <Button fx:id="btnReporteTotalPacientes" layoutX="232.0" layoutY="277.0" mnemonicParsing="false" onAction="#click" text="GENERAR REPORTE TOTAL">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btnReporteIndividualPaciente" layoutX="204.0" layoutY="149.0" mnemonicParsing="false" onAction="#click" text="GENERAR REPORTE INDIVIDUAL">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Button>
+                                          <TextField fx:id="lblIdPacienteReporte" layoutX="262.0" layoutY="95.0" prefHeight="0.0" prefWidth="275.0">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </TextField>
+                                          <Label layoutX="193.0" layoutY="50.0" text="Ingrese la identificación del Paciente">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                            <Tab text="CrearPaciente">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="191.0" layoutY="49.0" text="Cedula">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="185.0" layoutY="90.0" text="Nombre">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="184.0" layoutY="133.0" text="Telefono">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="192.0" layoutY="173.0" text="Correo">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="178.0" layoutY="221.0" text="Dirreccion">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="147.0" layoutY="276.0" text="Fecha Nacimiento">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="lblIdCrearPaciente" layoutX="278.0" layoutY="50.0" prefHeight="26.0" prefWidth="189.0" />
+                                          <TextField fx:id="lblNombreCrearPaciente" layoutX="278.0" layoutY="91.0" prefHeight="26.0" prefWidth="190.0" />
+                                          <TextField fx:id="lblTelefonoCrearPaciente" layoutX="278.0" layoutY="134.0" prefHeight="26.0" prefWidth="190.0" />
+                                          <TextField fx:id="lblCorreoCrearPaciente" layoutX="278.0" layoutY="173.0" prefHeight="26.0" prefWidth="190.0" />
+                                          <TextField fx:id="lblDireccionCrearPaciente" layoutX="277.0" layoutY="221.0" prefHeight="26.0" prefWidth="190.0" />
+                                          <Button fx:id="btnCrearPaciente" layoutX="347.0" layoutY="334.0" mnemonicParsing="false" onAction="#click" text="Crear Paciente">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Button>
+                                          <DatePicker fx:id="fechaNacimientoCrearPaciente" layoutX="302.0" layoutY="277.0" prefHeight="26.0" prefWidth="163.0" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="ActualizarPaciente">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="209.0" layoutY="50.0" text="Cedula">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="203.0" layoutY="92.0" text="Nombre">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="202.0" layoutY="138.0" text="Telefono">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="209.0" layoutY="187.0" text="Correo">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="196.0" layoutY="228.0" text="Dirreccion">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="165.0" layoutY="271.0" text="Fecha Nacimiento">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="lblIdActualizarPaciente" layoutX="307.0" layoutY="50.0" prefHeight="26.0" prefWidth="189.0" />
+                                          <TextField fx:id="lblNombreActualizarPaciente" layoutX="306.0" layoutY="92.0" prefHeight="26.0" prefWidth="190.0" />
+                                          <TextField fx:id="lblTelefonoActualizarPaciente" layoutX="308.0" layoutY="138.0" prefHeight="26.0" prefWidth="190.0" />
+                                          <TextField fx:id="lblCorreoActualizarPaciente" layoutX="306.0" layoutY="187.0" prefHeight="26.0" prefWidth="190.0" />
+                                          <TextField fx:id="lblDireccionActualizarPaciente" layoutX="306.0" layoutY="228.0" prefHeight="26.0" prefWidth="190.0" />
+                                          <DatePicker fx:id="fechaNacimientoActualizarPaciente" layoutX="333.0" layoutY="271.0" prefHeight="26.0" prefWidth="163.0" />
+                                          <Button fx:id="btnActualizarPaciente" layoutX="342.0" layoutY="330.0" mnemonicParsing="false" onAction="#click" text="Actualizar Paciente">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="EliminarPaciente">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="197.0" layoutY="106.0" text="Ingrese la identificación del Paciente">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="lblIdPacienteEliminar" layoutX="266.0" layoutY="161.0" prefHeight="0.0" prefWidth="275.0">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </TextField>
+                                          <Button fx:id="btnEliminarPaciente" layoutX="342.0" layoutY="226.0" mnemonicParsing="false" onAction="#click" text="Eliminar">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Medicos">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane layoutX="3.0" layoutY="8.0" prefHeight="429.0" prefWidth="808.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="ReportesMedicos">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="186.0" prefWidth="822.0">
+                                       <children>
+                                          <Label layoutX="203.0" layoutY="72.0" text="Ingrese la identificación del Medico">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="lblIdMedicoReporteIndividual" layoutX="266.0" layoutY="118.0" prefHeight="0.0" prefWidth="275.0">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </TextField>
+                                          <Button fx:id="btnReporteTotalMedicos" layoutX="237.0" layoutY="318.0" mnemonicParsing="false" onAction="#click" text="GENERAR REPORTE TOTAL">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btnReporteIndividualMedico" layoutX="204.0" layoutY="174.0" mnemonicParsing="false" onAction="#click" text="GENERAR REPORTE INDIVIDUAL">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="ActualizarMedico">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="198.0" layoutY="30.0" text="Cedula">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="192.0" layoutY="78.0" text="Nombre">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="191.0" layoutY="122.0" text="Telefono">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="198.0" layoutY="163.0" text="Correo">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="185.0" layoutY="200.0" text="Dirreccion">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="154.0" layoutY="246.0" text="Fecha Nacimiento">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <DatePicker fx:id="fechaNacimientoActualizarMedico" layoutX="322.0" layoutY="246.0" prefHeight="26.0" prefWidth="175.0" />
+                                          <TextField fx:id="lblIdActualizarMedico" layoutX="309.0" layoutY="30.0" prefHeight="26.0" prefWidth="189.0" />
+                                          <TextField fx:id="lblNombreActualizarMedico" layoutX="308.0" layoutY="78.0" prefHeight="26.0" prefWidth="190.0" />
+                                          <TextField fx:id="lblTelefonoActualizarMedico" layoutX="308.0" layoutY="122.0" prefHeight="26.0" prefWidth="190.0" />
+                                          <TextField fx:id="lblCorreoActualizarMedico" layoutX="308.0" layoutY="163.0" prefHeight="26.0" prefWidth="190.0" />
+                                          <TextField fx:id="lblDireccionActualizarMedico" layoutX="308.0" layoutY="200.0" prefHeight="26.0" prefWidth="190.0" />
+                                          <Label layoutX="176.0" layoutY="290.0" text="Especialidad">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ChoiceBox fx:id="choiceEspecialidadActualizarMedico" layoutX="316.0" layoutY="291.0" prefHeight="26.0" prefWidth="185.0" />
+                                          <Button fx:id="btnActualizarMedico" layoutX="340.0" layoutY="340.0" mnemonicParsing="false" onAction="#click" text="Actualizar Medico">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="EliminarMedico">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="203.0" layoutY="97.0" text="Ingrese la identificación del Medico">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="lblIdMedicoEliminar" layoutX="266.0" layoutY="160.0" prefHeight="0.0" prefWidth="275.0">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </TextField>
+                                          <Button fx:id="btnEliminarMedico" layoutX="342.0" layoutY="232.0" mnemonicParsing="false" onAction="#click" text="Eliminar">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab text="CrearMedico">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="202.0" layoutY="31.0" text="Cedula">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="196.0" layoutY="76.0" text="Nombre">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="195.0" layoutY="121.0" text="Telefono">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="202.0" layoutY="166.0" text="Correo">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="189.0" layoutY="214.0" text="Dirreccion">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="158.0" layoutY="258.0" text="Fecha Nacimiento">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="180.0" layoutY="302.0" text="Especialidad">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="btnCrearMedico" layoutX="348.0" layoutY="348.0" mnemonicParsing="false" onAction="#click" text="Crear Medico">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Button>
+                                          <TextField fx:id="lblIdCrearMedico" layoutX="308.0" layoutY="31.0" prefHeight="26.0" prefWidth="189.0" />
+                                          <TextField fx:id="lblNombreCrearMedico" layoutX="307.0" layoutY="76.0" prefHeight="26.0" prefWidth="190.0" />
+                                          <TextField fx:id="lblTelefonoCrearMedico" layoutX="309.0" layoutY="121.0" prefHeight="26.0" prefWidth="190.0" />
+                                          <TextField fx:id="lblCorreoCrearMedico" layoutX="309.0" layoutY="166.0" prefHeight="26.0" prefWidth="190.0" />
+                                          <TextField fx:id="lblDireccionCrearMedico" layoutX="309.0" layoutY="214.0" prefHeight="26.0" prefWidth="190.0" />
+                                          <DatePicker fx:id="fechaNacimientoCrearMedico" layoutX="334.0" layoutY="258.0" prefHeight="26.0" prefWidth="163.0" />
+                                          <ChoiceBox fx:id="choiceEspecialidadCrearMedico" layoutX="311.0" layoutY="302.0" prefHeight="26.0" prefWidth="185.0" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab text="ActualizarHorario">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="224.0" layoutY="70.0" text="Cedula">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="lblIdActualizarHorario" layoutX="309.0" layoutY="71.0" prefHeight="26.0" prefWidth="189.0" />
+                                          <Label layoutX="202.0" layoutY="129.0" text=" Dia Semana">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ChoiceBox fx:id="choiceDiaHorario" layoutX="313.0" layoutY="129.0" prefHeight="26.0" prefWidth="186.0" />
+                                          <Label layoutX="207.0" layoutY="215.0" text="Hora Inicio">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="217.0" layoutY="271.0" text="Hora Fin">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="325.0" layoutY="178.0" text="Hora">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="417.0" layoutY="178.0" text="Minuto">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="txtHoraInicioHoraActualizarHorario" layoutX="313.0" layoutY="222.0" prefWidth="63.0" />
+                                          <TextField fx:id="txtHoraFinHoraActualizarHorario" layoutX="313.0" layoutY="272.0" prefWidth="63.0" />
+                                          <TextField fx:id="txtHoraInicioMinutoActualizarHorario" layoutX="414.0" layoutY="222.0" prefWidth="63.0" />
+                                          <TextField fx:id="txtHoraIFinMinutoActualizarHorario1" layoutX="414.0" layoutY="272.0" prefWidth="63.0" />
+                                          <Button fx:id="btnIngresarHorario" layoutX="368.0" layoutY="338.0" mnemonicParsing="false" onAction="#click" text="GUARDAR">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Button fx:id="btnMostrarHorario" layoutX="517.0" layoutY="71.0" mnemonicParsing="false" onAction="#click" text="MostrarHorario">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Citas">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane layoutY="7.0" prefHeight="434.0" prefWidth="808.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="ReportesCitas">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Button fx:id="btnReporteIndividualAutorizacion" layoutX="204.0" layoutY="151.0" mnemonicParsing="false" onAction="#click" text="GENERAR REPORTE INDIVIDUAL">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btnReporteTotalCitas" layoutX="236.0" layoutY="275.0" mnemonicParsing="false" onAction="#click" text="GENERAR REPORTE TOTAL">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Button>
+                                          <Label layoutX="204.0" layoutY="54.0" text="Ingrese el numero de identificacion">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="lblAutorizacionReporte" layoutX="259.0" layoutY="96.0" prefHeight="0.0" prefWidth="275.0">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="CrearCita">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="326.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="192.0" layoutY="53.0" text="Cedula">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="170.0" layoutY="108.0" text="Especialidad">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="172.0" layoutY="189.0" text="Dia Solicitar">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="165.0" layoutY="253.0" text="Hora Solicitar">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="335.0" layoutY="291.0" text="Hora">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="440.0" layoutY="291.0" text="Minuto">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="btnSolicitarCita" layoutX="370.0" layoutY="340.0" mnemonicParsing="false" onAction="#click" text="Solicitar">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                          <TextField fx:id="txtCedulaSolicitarCita" layoutX="286.0" layoutY="47.0" prefHeight="40.0" prefWidth="272.0" />
+                                          <ChoiceBox fx:id="choiceEspecialidadCita" layoutX="286.0" layoutY="102.0" prefHeight="40.0" prefWidth="270.0" />
+                                          <ChoiceBox fx:id="choiceDiaSolicitarCita" layoutX="286.0" layoutY="183.0" prefHeight="40.0" prefWidth="270.0" />
+                                          <TextField fx:id="txtHoraSolicitarCita" layoutX="308.0" layoutY="247.0" prefHeight="40.0" prefWidth="93.0" />
+                                          <TextField fx:id="txtMinutoSolicitarCita" layoutX="422.0" layoutY="247.0" prefHeight="40.0" prefWidth="93.0" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="CancelarCita">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="155.0" layoutY="83.0" text="Ingrese el numero de Autorizacion de la cita">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="txtCancelarCita" layoutX="252.0" layoutY="154.0" prefHeight="58.0" prefWidth="303.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <Button fx:id="btnCancelarCita" layoutX="322.0" layoutY="260.0" mnemonicParsing="false" onAction="#click" text="CANCELAR CITA">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Salas">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane layoutX="1.0" layoutY="8.0" prefHeight="430.0" prefWidth="808.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="ReportesSalas">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Button fx:id="btnReporteTotalSalas" layoutX="237.0" layoutY="149.0" mnemonicParsing="false" onAction="#click" text="GENERAR REPORTE TOTAL">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="CrearSala">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="155.0" layoutY="119.0" text="Numero Sala">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="144.0" layoutY="209.0" text="Cedula Medico">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="txtNumeroSalaCrear" layoutX="323.0" layoutY="107.0" prefHeight="58.0" prefWidth="303.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="txtIdMedicoSalaCrear" layoutX="323.0" layoutY="197.0" prefHeight="58.0" prefWidth="303.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <Button fx:id="btnSalaCrear" layoutX="363.0" layoutY="289.0" mnemonicParsing="false" onAction="#click" text="CREAR">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="EliminarSala">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="258.0" layoutY="105.0" text="Ingrese el numero de Sala">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="txtSalaEliminar" layoutX="252.0" layoutY="159.0" prefHeight="58.0" prefWidth="303.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <Button fx:id="btnEliminarSala" layoutX="348.0" layoutY="245.0" mnemonicParsing="false" onAction="#click" text="ELIMINAR">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab text="ActualizarSala">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="169.0" layoutY="112.0" text="Numero Sala">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="158.0" layoutY="201.0" text="Cedula Medico">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="txtNumeroSalaActualizar" layoutX="343.0" layoutY="100.0" prefHeight="58.0" prefWidth="303.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="txtIdMedicoSalaActualizar" layoutX="343.0" layoutY="201.0" prefHeight="58.0" prefWidth="303.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <Button fx:id="btnSalaActualizar" layoutX="337.0" layoutY="290.0" mnemonicParsing="false" onAction="#click" text="ACTUALIZAR">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Label layoutX="251.0" layoutY="14.0" text="HOSPITAL CENTRO">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="312.0" layoutY="54.0" text="Portal Administrador">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnCerrarCesion" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#click" text="CERRAR CESION">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>

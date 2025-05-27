@@ -46,9 +46,7 @@ public class HospitalViewController {
 
     }
 
-    private void changeScene(String s) {
-        String root = s;
-    }
+
 
     @FXML
     void initialize() {

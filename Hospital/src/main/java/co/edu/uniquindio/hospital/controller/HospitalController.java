@@ -1,9 +1,6 @@
 package co.edu.uniquindio.hospital.controller;
 
-import co.edu.uniquindio.hospital.model.Especialidad;
-import co.edu.uniquindio.hospital.model.Hospital;
-import co.edu.uniquindio.hospital.model.TipoProcedimiento;
-import co.edu.uniquindio.hospital.model.Paciente;
+import co.edu.uniquindio.hospital.model.*;
 import javafx.event.ActionEvent;
 
 import java.time.DayOfWeek;
@@ -59,6 +56,29 @@ public class HospitalController {
         return hospital.buscarPaciente(idPaciente);
     }
 
+    public Medico buscarMedico(String idMedico) {
+        return hospital.buscarMedico(idMedico);
+    }
+
+    public ArrayList<Medico> getListMedicos() {
+        return hospital.getListMedicos();
+    }
+
+    public boolean actualizarMedico(String id, String nombre, String telefono, String email, String direccion, LocalDate fechaNacimiento, Especialidad especialidad) {
+        return hospital.actualizarMedico(id,nombre,telefono,email,direccion,fechaNacimiento,especialidad);
+    }
+
+    public boolean crearMedico(String id, String nombre, String telefono, String email, String direccion, LocalDate fechaNacimiento, Especialidad especialidad){
+        return hospital.crearMedico(id,nombre,telefono,email,direccion,fechaNacimiento,especialidad);
+    }
+
+    public boolean eliminarMedico(String id) {
+        return hospital.eliminarMedico(id);
+    }
+
+
+
+
 
 
 
@@ -77,6 +97,43 @@ public class HospitalController {
     public String mostrarCitasPorPaciente(String idPaciente){
         return hospital.mostrarCitasPorPaciente(idPaciente);
     }
+
+    public boolean crearPaciente(String id, String nombre, String telefono, String email, String direccion, LocalDate fechaNacimiento){
+        return hospital.crearPaciente(id, nombre, telefono, email, direccion, fechaNacimiento);
+    }
+
+
+    public boolean eliminarPaciente(String idPaciente){
+        return hospital.eliminarPaciente(idPaciente);
+    }
+
+
+    public ArrayList<Paciente> getListPacientes() {
+        return hospital.getListPacientes();
+    }
+
+    public ArrayList<Sala> getListSalas() {
+        return hospital.getListSalas();
+    }
+
+    public ArrayList<CitaMedica> getListCitas() {
+        return hospital.getListCitas();
+    }
+
+
+
+    public boolean crearSala(int codigoSala, String idMedico){
+        return hospital.crearSala(codigoSala, idMedico);
+    }
+
+    public boolean eliminarSala(int id){
+        return hospital.eliminarSala(id);
+    }
+
+    public boolean actualizarSala(int codigoSala, String idMedico) {
+        return hospital.actualizarSala(codigoSala, idMedico);
+    }
+
 
 
 
