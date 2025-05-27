@@ -28,6 +28,10 @@ public class HospitalController {
         return hospital.iniciarCesionGeneral(id, email);
     }
 
+    public boolean iniciarCesionMedico(String id, String email) {
+        return hospital.iniciarCesionMedico(id,email);
+    }
+
     public boolean iniciarCesionAdmin(String id, String email) {
         return hospital.iniciarCesionAdmin(id, email);
     }

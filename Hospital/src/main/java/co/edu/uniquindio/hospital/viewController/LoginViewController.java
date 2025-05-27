@@ -43,15 +43,16 @@ public class LoginViewController {
             if(!txtEmail.getText().isEmpty() && !txtContraseña.getText().isEmpty()) {
                 String email = txtEmail.getText();
                 String contraseña = txtContraseña.getText();
-                boolean valido = hospitalController.iniciarCesionGeneral(contraseña, email);
-                if(valido = true){
+                boolean valido = hospitalController.iniciarCesionMedico(contraseña, email);
+                if(valido == true){
                     app.openMedico();
-                }else if(valido = false){
+                }else if(valido == false){
                     JOptionPane.showMessageDialog(null, "Los datos son incorrectos", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
                 }
             }else{
                 JOptionPane.showMessageDialog(null, "Los datos son incorrectos", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
             }
+
         } else if (clicked == btnVolver) {
             app.openHospital();
         }

@@ -115,6 +115,8 @@ public class App extends Application {
     }
 
 
+
+
     public void openMedico(){
 
 
@@ -133,6 +135,43 @@ public class App extends Application {
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+
+    public void openLoginAdmin(){
+
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("LoginAdmin.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            LoginAdminViewController loginAdminViewController = loader.getController();
+            loginAdminViewController.setApp(this);
+            loginAdminViewController.setHospitalController(hospitalController);
+            Scene scene = new Scene(rootLayout);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void openAdmin(){
+
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("Admin.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            AdminViewController adminViewController = loader.getController();
+            adminViewController.setApp(this);
+            adminViewController.setHospitalController(hospitalController);
+            Scene scene = new Scene(rootLayout);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
     }
 
 

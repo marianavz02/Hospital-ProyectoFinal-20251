@@ -34,6 +34,7 @@ public class HospitalViewController {
     void click(ActionEvent event) {
         Object clicked = event.getSource();
         if (clicked == btnAdmin) {
+            app.openLoginAdmin();
 
         }
         if (clicked == btnTrabajador) {

@@ -456,20 +456,33 @@ public class Hospital {
     public boolean iniciarCesionGeneral (String id, String email) {
         boolean flag = false;
         Persona buscarPaciente = buscarPaciente(id);
-        Persona buscarMedico = buscarMedico(id);
-
-        if(buscarPaciente!=null) {
-            boolean inicioCesion = buscarPaciente.iniciarCesion(id,email,buscarPaciente);
-            if(inicioCesion == true) {
-                flag = true;
-            }
-        } else if (buscarMedico != null) {
-            boolean inicioCesion = buscarMedico.iniciarCesion(id,email,buscarMedico);
-            if(inicioCesion == true) {
-                flag = true;
+        for(Paciente paciente : listPacientes) {
+            if(paciente.equals(buscarPaciente)) {
+                boolean inicioCesion = buscarPaciente.iniciarCesion(id, email, paciente);
+                if(inicioCesion == true) {
+                    flag = true;
+                }
             }
         }return flag;
     }
+
+
+
+    public boolean iniciarCesionMedico(String id, String email) {
+        boolean flag = false;
+        Persona buscarMedico= buscarMedico(id);
+        for(Medico medico : listMedicos) {
+            if(medico.equals(buscarMedico)) {
+                boolean inicioCesion = buscarMedico.iniciarCesion(id,email,buscarMedico);
+                if(inicioCesion == true) {
+                    flag = true;
+                }
+            }
+        }return flag;
+    }
+
+
+
 
     public boolean iniciarCesionAdmin(String id, String email) {
         boolean flag = false;
