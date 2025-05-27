@@ -148,6 +148,10 @@ public class MedicoViewController {
         }
 
         if(eve == btnIngresarHorario){
+            if(!txtIdMedicoHorario.getText().isEmpty() && !txtHoraInicioHora.getText().isEmpty()
+                    && !txtHoraInicioMinutos.getText().isEmpty() && !txtHoraFinalHora.getText().isEmpty()
+                    && !txtHoraFinalMinutos.getText().isEmpty()){
+
             String idMedico = txtIdMedicoHorario.getText();
             int horaInicio = Integer.parseInt(txtHoraInicioHora.getText());
             int minutosInicio = Integer.parseInt(txtHoraInicioMinutos.getText());
@@ -155,8 +159,8 @@ public class MedicoViewController {
             int minutosFinal = Integer.parseInt(txtHoraFinalMinutos.getText());
             DayOfWeek day = choiceDiaSemana.getValue();
             hospitalController.modificarHorario(idMedico,day, LocalTime.of(horaInicio,minutosInicio),LocalTime.of(horaFinal,minutosFinal));
+            }
         }
-
         if(eve== btnMostrarHorario){
             if(txtIdMedicoHorario.getText() != null){
                 String horarioMostrar = hospitalController.mostrarHorarioString(txtIdMedicoHorario.getText());

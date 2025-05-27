@@ -201,6 +201,19 @@ public class Hospital {
     }
 
 
+    public String mostrarCitasPorPaciente(String idPaciente){
+        String citas = "";
+        if (buscarPaciente(idPaciente) != null) {
+            Paciente paciente = buscarPaciente(idPaciente);
+            for (CitaMedica citaMedica : listCitas) {
+                if(citaMedica.getPaciente().equals(paciente)){
+                    citas+=citaMedica.toString();
+                }
+            }
+        }return citas;
+    }
+
+
 
 
     //crear medico

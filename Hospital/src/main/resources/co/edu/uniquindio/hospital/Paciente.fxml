@@ -14,7 +14,6 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="602.0" prefWidth="859.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.viewController.PacienteViewController">
    <children>
       <Ellipse fill="#d0e8ff" layoutX="735.0" layoutY="355.0" radiusX="108.0" radiusY="154.0" stroke="BLACK" strokeType="INSIDE" />
@@ -79,7 +78,6 @@
                            </font>
                         </Label>
                         <TextField fx:id="txtCedulaSolicitarCita" layoutX="177.0" layoutY="125.0" prefHeight="40.0" prefWidth="272.0" />
-                        <TextField fx:id="txtDiaSolicitarCita" layoutX="177.0" layoutY="294.0" prefHeight="40.0" prefWidth="272.0" />
                         <TextField fx:id="txtHoraSolicitarCita" layoutX="177.0" layoutY="388.0" prefHeight="40.0" prefWidth="126.0" />
                         <TextField fx:id="txtMinSolicitarCita" layoutX="322.0" layoutY="388.0" prefHeight="40.0" prefWidth="126.0" />
                         <ChoiceBox fx:id="choiceEspecialidad" layoutX="177.0" layoutY="211.0" prefHeight="40.0" prefWidth="270.0" />
@@ -98,6 +96,7 @@
                               <Font size="14.0" />
                            </font>
                         </Button>
+                        <ChoiceBox fx:id="choiceDiaSolicitarCita" layoutX="178.0" layoutY="294.0" prefHeight="40.0" prefWidth="270.0" />
                      </children>
                   </AnchorPane>
             </content>

@@ -66,6 +66,16 @@ public class HospitalController {
         return hospital.actualizarPaciente(id, nombre, telefono, email, direccion, fechaNacimiento);
     }
 
+    public boolean cancelarCita(int autorizacion){
+        return hospital.cancelarCita(autorizacion);
+    }
+
+    public String mostrarCitasPorPaciente(String idPaciente){
+        return hospital.mostrarCitasPorPaciente(idPaciente);
+    }
+
+
+
 
 
 

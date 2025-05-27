@@ -82,11 +82,11 @@ public class CitaMedica {
 
     @Override
     public String toString() {
-        return "CitaMedica{" +
+        return "\nCitaMedica{\n" +
                 "paciente=" + paciente +
                 ", diaSemana=" + diaSemana +
                 ", horaInicio=" + horaInicio +
-                ", autorizacion=" + autorizacion +
+                ",\n, autorizacion=" + autorizacion +
                 ", profesional=" + profesional.getNombre() +
                 ", especialidad=" + especialidad +
                 ", consultorio=" + consultorio +
