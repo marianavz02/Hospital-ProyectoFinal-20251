@@ -2,9 +2,7 @@ package co.edu.uniquindio.hospital;
 
 import co.edu.uniquindio.hospital.model.Especialidad;
 import co.edu.uniquindio.hospital.model.Hospital;
-import co.edu.uniquindio.hospital.viewController.LoginViewController;
-import co.edu.uniquindio.hospital.viewController.HospitalViewController;
-import co.edu.uniquindio.hospital.viewController.MedicoViewController;
+import co.edu.uniquindio.hospital.viewController.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -48,6 +46,42 @@ public class App extends Application {
             hospitalViewController.setApp(this);
 
 
+            Scene scene = new Scene(rootLayout);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void openLoginPaciente(){
+
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("LoginPaciente.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            LoginPacienteViewController loginPacienteViewController = loader.getController();
+            loginPacienteViewController.setApp(this);
+            loginPacienteViewController.setHospitalController(hospitalController);
+
+            Scene scene = new Scene(rootLayout);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void openPaciente(){
+
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("Paciente.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            PacienteViewController pacienteViewController = loader.getController();
+            pacienteViewController.setApp(this);
+            pacienteViewController.setHospitalController(hospitalController);
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.show();

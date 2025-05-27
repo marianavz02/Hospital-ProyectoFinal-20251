@@ -1,11 +1,13 @@
 package co.edu.uniquindio.hospital.controller;
 
+import co.edu.uniquindio.hospital.model.Especialidad;
 import co.edu.uniquindio.hospital.model.Hospital;
 import co.edu.uniquindio.hospital.model.TipoProcedimiento;
 import co.edu.uniquindio.hospital.model.Paciente;
 import javafx.event.ActionEvent;
 
 import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
@@ -56,5 +58,19 @@ public class HospitalController {
 
 
 
+    public boolean crearCita(String idPaciente, Especialidad especialidad,DayOfWeek dia, LocalTime horaInicio) {
+        return hospital.crearCita(idPaciente, especialidad, dia, horaInicio);
+    }
 
-}
+    public boolean actualizarPaciente(String id, String nombre, String telefono, String email, String direccion, LocalDate fechaNacimiento) {
+        return hospital.actualizarPaciente(id, nombre, telefono, email, direccion, fechaNacimiento);
+    }
+
+
+
+
+
+
+
+
+    }

@@ -44,7 +44,7 @@ public class LoginPacienteViewController {
                 String contraseña = txtContraseña.getText();
                 boolean valido = hospitalController.iniciarCesionGeneral(contraseña, email);
                 if(valido = true){
-                    //app.Open
+                    app.openPaciente();
                 }else{
                     JOptionPane.showMessageDialog(null, "Los datos son incorrectos", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
                 }

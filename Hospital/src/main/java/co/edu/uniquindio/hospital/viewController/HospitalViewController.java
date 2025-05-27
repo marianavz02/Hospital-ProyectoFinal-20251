@@ -32,7 +32,17 @@ public class HospitalViewController {
 
     @FXML
     void click(ActionEvent event) {
-        app.openLoginMedico();
+        Object clicked = event.getSource();
+        if (clicked == btnAdmin) {
+
+        }
+        if (clicked == btnTrabajador) {
+            app.openLoginMedico();
+        }
+        if (clicked == btnUsuario) {
+            app.openLoginPaciente();
+        }
+
     }
 
     private void changeScene(String s) {
